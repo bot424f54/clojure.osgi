@@ -10,21 +10,26 @@ Usage
 ==========
 
 Build the clojure.osgi module using maven
+```
 cd clojure.osgi
 mvn clean install
+```
 
 This should give you a "clojureized" bundle for use in karaf exporting the main clojure.  Deploy this in karaf.
 
 Build the karaf-demo module.
+```
 cd karaf-demo
 mvn clean install
+```
 
-This a very useless app that just prints out to System.out that the bundle has started. Deploy this in karaf. 
-start the clojure bundle and you should see system.out saying that main bundle has started.
+This a very useless app that just prints out to System.out that the bundle has started. Deploy this in karaf.
+Start the clojure bundle and you should see system.out saying that main bundle has started.
 
 The key point to this demo is specifying the namespace that contains your bundle activator function.  As of now this is hardcoded as "bundle-start"
 
 If you look in the pom in the karaf-demo you can see the instructions to the bnd plugin 
+```
 <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
 	                      <Import-Package>
                             <!--${project.artifactId}; version=$(Bundle-Version),-->
@@ -35,7 +40,7 @@ If you look in the pom in the karaf-demo you can see the instructions to the bnd
                         </Import-Package>
 <Clojure-Require>demo.main</Clojure-Require>
 <Clojure-ActivatorNamespace>demo.main</Clojure-ActivatorNamespace>
-			
+```			
 Notice Clojure-Require and Clojure-ActivatorNamespace custom entries to the manifest.
 This invokes a the BundleTracker in the clojure bundle which starts your bundle with the namespace specified.
 Thats it have fun playing with clojure on karaf
@@ -47,5 +52,7 @@ Beware of namespace issues like clojure.java as when you define your imports and
 Next
 ==============
 AOT (Ahead of Time) compiled classes demo.
+
 OSGI Service.
+
 There are examples from the main repos this was forked from all I am doing is using the maven bnd plugin to update the Manifest.

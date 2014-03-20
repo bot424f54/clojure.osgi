@@ -43,6 +43,11 @@ If you look in the pom in the karaf-demo you can see the instructions to the bnd
 ```			
 Notice Clojure-Require and Clojure-ActivatorNamespace custom entries to the manifest.
 This invokes a the BundleTracker in the clojure bundle which starts your bundle with the namespace specified.
+You can double check the Manifest it has
+```
+Clojure-Require: demo.main
+Clojure-ActivatorNamespace: demo.main
+```
 Thats it have fun playing with clojure on karaf
 
 Caveats

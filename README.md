@@ -4,7 +4,7 @@ clojure.osgi
 Clojure / OSGi integration
 Due to the fact that OSGI had seperate classloaders clojure will not work out of the box.  The clojure.osgi bundle gives you the ability to run clojure code in osgi.
 
-Works on Apache Karaf 3.0.0 simple example with no dependancies
+Works on Apache Karaf 3.0.0 simple example with no dependencies
 
 Usage
 ==========
